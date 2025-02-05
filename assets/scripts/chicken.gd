@@ -1,9 +1,10 @@
 extends Area3D
 
+@export var roadWidth: float = 2.5
 @export var player: Node3D
 
 func _ready() -> void:
-	position.x = randi_range(-3, 3)
+	position.x = randf_range(-roadWidth, roadWidth)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -14,5 +15,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if (body == player):
-		queue_free()
 		player.speed -= 1
+		queue_free()

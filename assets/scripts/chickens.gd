@@ -23,4 +23,3 @@ func _process(delta: float) -> void:
 		new_chicken.position.z = -spawnRange
 		add_child(new_chicken)
 		chickensDistances.pop_front()
-	print(chickensDistances, player.distance)
