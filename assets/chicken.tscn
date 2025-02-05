@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6tak4bohgc6g"]
+
+[ext_resource type="Script" path="res://assets/scripts/chicken.gd" id="1_r2f1g"]
+[ext_resource type="Texture2D" uid="uid://d1h1uxid10vvq" path="res://assets/tilemap/chicken.jpg" id="1_w1i42"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5bof"]
+atlas = ExtResource("1_w1i42")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y71od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5bof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qri60"]
+size = Vector3(1, 1, 0.0673828)
+
+[node name="Chicken" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.523018, -0.00278708)
+script = ExtResource("1_r2f1g")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.001
+sprite_frames = SubResource("SpriteFrames_y71od")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qri60")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

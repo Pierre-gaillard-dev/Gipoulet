@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dddnhn33hj8ka"]
+
+[ext_resource type="Script" path="res://assets/scripts/chick.gd" id="1_0drlo"]
+[ext_resource type="Texture2D" uid="uid://b4hdxrx78x282" path="res://assets/tilemap/chick.png" id="1_j5qv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb511"]
+atlas = ExtResource("1_j5qv8")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0k7e"]
+atlas = ExtResource("1_j5qv8")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0rbf"]
+atlas = ExtResource("1_j5qv8")
+region = Rect2(96, 192, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87ni3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb511")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0k7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0rbf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qcfmh"]
+size = Vector3(0.432617, 0.463867, 0.0744629)
+
+[node name="Chick" type="Area3D"]
+script = ExtResource("1_0drlo")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_87ni3")
+frame = 2
+frame_progress = 0.711744
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qcfmh")
