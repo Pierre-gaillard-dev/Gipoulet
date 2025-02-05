@@ -86,6 +86,7 @@ size = Vector3(1.45996, 2.36539, 0.264511)
 
 [node name="Node3D" type="CharacterBody3D"]
 script = ExtResource("1_1g52f")
+distance_max = 10
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1628, 0)

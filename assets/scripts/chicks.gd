@@ -1,15 +1,19 @@
 extends Node
 
 @export var chick: PackedScene
+@export var chickNumber: int = 50
+@export var chicksDistances: Array[float] = []
 
-@export var chicksDistances: Array[int] = [3, 10, 40, 100]
-@export_range(0, 50) var spawnRange = 5
+@export_category("environment")
+@export_range(0, 50) var spawnRange = 20
 #scène player
 @export var player: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node("../Player")
+	for i in range(chickNumber):
+		chicksDistances.append(randf_range(0, player.distance_max))
 	chicksDistances.sort()
 
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://4cemtklyfhff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gcp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkgad"]
+bg_color = Color(0.2508, 0.66, 0.2508, 1)
+
+[node name="Interface" type="CanvasLayer"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.5
+offset_right = 575.5
+offset_bottom = 15.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_7gcp6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vkgad")
+step = 0.1
+value = 31.0
+show_percentage = false

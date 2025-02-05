@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqcpbnaxq45hw"]
+
+[ext_resource type="Script" path="res://assets/scripts/button.gd" id="1_2wvly"]
+[ext_resource type="PackedScene" uid="uid://d0q17r2idk4e0" path="res://assets/game.tscn" id="2_gbwfe"]
+
+[node name="homeHUD" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -15.5
+offset_right = 51.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Commencer"
+script = ExtResource("1_2wvly")
+game = ExtResource("2_gbwfe")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

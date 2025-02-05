@@ -16,5 +16,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if (body == player):
-		player.speed += 10
+		player.speed += 5
 		queue_free()
