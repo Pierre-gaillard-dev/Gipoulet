@@ -41,32 +41,30 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whdt2"]
 
-[node name="homeHUD" type="Node3D"]
+[node name="Home_hud" type="CanvasLayer"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(987, 367)
 scale = Vector2(0.149752, 0.149752)
 sprite_frames = SubResource("SpriteFrames_60mvs")
 autoplay = "default"
 frame_progress = 0.108472
 
-[node name="Pancarte" type="Sprite2D" parent="CanvasLayer"]
+[node name="Pancarte" type="Sprite2D" parent="."]
 position = Vector2(352, 390)
 scale = Vector2(0.143398, 0.143398)
 texture = ExtResource("4_v3kgd")
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button" type="Button" parent="Pancarte"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -47.0
-offset_top = 159.0
-offset_right = 111.0
-offset_bottom = 246.0
+offset_left = -1072.5
+offset_top = -1331.5
+offset_right = 85.5
+offset_bottom = -689.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
@@ -91,4 +89,4 @@ text = "Commencer"
 script = ExtResource("1_2wvly")
 game = ExtResource("2_gbwfe")
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Pancarte/Button" to="Pancarte/Button" method="_on_pressed"]

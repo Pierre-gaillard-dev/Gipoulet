@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var roadWidth: float = 0.3
+@export var roadWidth: float = 0.4
 @export var player: Node3D
 var playerTouched: bool = false
 var spawn: Vector2
@@ -16,9 +16,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#avancer
 	position.z = position.z + (player.speed * delta)
-	if position.y >=0:
-		position.x += final.x-spawn.x * 2 * delta
-		position.y += final.y-spawn.y * 2 * delta
+	if position.y > 0.3:
+		position.x += final.x-spawn.x * delta * player.speed /5
+		position.y += final.y-spawn.y * delta * player.speed /5
 	
 	if position.z > 20:
 		queue_free()

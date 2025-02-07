@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp873rgb0bhv3"]
 
 [ext_resource type="Script" path="res://assets/scripts/school.gd" id="1_b1s8g"]
-[ext_resource type="Texture2D" uid="uid://bgtwtuwfkurh1" path="res://assets/tilemap/Ecole.png" id="1_mr01e"]
+[ext_resource type="Texture2D" uid="uid://dvf1mu0xre4my" path="res://assets/tilemap/Ecole.png" id="1_mr01e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xvcpo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r2wr"]
 atlas = ExtResource("1_mr01e")
-region = Rect2(0, 0, 2332, 1289)
+region = Rect2(0, 0, 4938, 3059)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ay0j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xvcpo")
+"texture": SubResource("AtlasTexture_4r2wr")
 }],
 "loop": true,
 "name": &"default",
@@ -22,6 +22,6 @@ animations = [{
 script = ExtResource("1_b1s8g")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.76021, 0)
+transform = Transform3D(0.672689, 0, 0, 0, 0.672689, 0, 0, 0, 1, 0, 7.24999, 0)
 sprite_frames = SubResource("SpriteFrames_6ay0j")
 frame_progress = 0.916432

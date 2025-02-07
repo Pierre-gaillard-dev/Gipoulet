@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvf1mu0xre4my"
-path.s3tc="res://.godot/imported/Ecole.png-7e003c4d573babd8ead46b5ca95416a8.s3tc.ctex"
+uid="uid://dh6312w0s2bhe"
+path.s3tc="res://.godot/imported/course-01.png-116acaa83be2967d638150f7062bb705.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/tilemap/Ecole.png"
-dest_files=["res://.godot/imported/Ecole.png-7e003c4d573babd8ead46b5ca95416a8.s3tc.ctex"]
+source_file="res://assets/tilemap/mainChar/course-01.png"
+dest_files=["res://.godot/imported/course-01.png-116acaa83be2967d638150f7062bb705.s3tc.ctex"]
 
 [params]
 

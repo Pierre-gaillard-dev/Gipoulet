@@ -2,7 +2,7 @@ extends Node
 
 @export_category("chicken")
 @export var chicken: PackedScene
-@export var chickensDistances: Array[int] = [3, 10, 40, 100]
+@export var chickensDistances: Array[int] = []
 @export var chickenNumber: int = 50
 
 @export_category("environment")

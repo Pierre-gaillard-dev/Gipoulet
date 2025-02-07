@@ -26,4 +26,5 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	time += 10
+	if player.playing:
+		time += 5

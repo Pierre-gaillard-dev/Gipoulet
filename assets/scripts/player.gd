@@ -7,8 +7,10 @@ extends Node3D
 #la vitesse se compte en cm/s
 @export var speed: float = 10.0
 @export var school: PackedScene
+@export var Justine: PackedScene
 @export var interface: CanvasLayer
-@export var home_hud: Node3D
+@export var home_hud: CanvasLayer
+var musicPlayer: AudioStreamPlayer
 @export var retardPlayer: AudioStreamPlayer
 @export var bonjourPlayer: AudioStreamPlayer
 var lateralSpeed: float = 1
@@ -19,6 +21,7 @@ var timer
 func _ready() -> void:
 	lateralSpeed = float(speed) / 2.3
 	timer = get_node("../Interface")
+	musicPlayer = get_node("../AudioStreamPlayer")
 	
 
 func reset() -> void:
@@ -26,26 +29,31 @@ func reset() -> void:
 	
 func finish():
 	playing = false
+	interface.hide()
 	var new_shool = school.instantiate()
 	get_parent().add_child(new_shool)
 	new_shool.player = self
 	new_shool.position.z = -50
-	await get_tree().create_timer(5).timeout
-	if timer.time < 300:
+	await get_tree().create_timer(2).timeout
+	musicPlayer.stream_paused = true
+	var justine = Justine.instantiate()
+	var justine_image: AnimatedSprite2D = justine.get_child(0)
+	get_parent().add_child(justine)
+	if timer.time <= 300:
 		bonjourPlayer.play()
 	else:
 		retardPlayer.play()
+		justine_image.frame = 1
 	await get_tree().create_timer(5).timeout
 	
+	home_hud.show()
 	get_parent().queue_free()
-	home_hud.get_child(0).show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	distance += speed*delta
 	lateralSpeed = float(speed) / 2.3
 	move(delta)
-	#finish
 	if (distance > distance_max and playing):
 		finish()
 

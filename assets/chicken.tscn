@@ -61,7 +61,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qri60"]
-size = Vector3(0.543945, 1, 0.0673828)
+size = Vector3(0.543945, 1, 0.308411)
 
 [node name="Chicken" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.523018, -0.00278708)
@@ -75,6 +75,7 @@ autoplay = "default"
 frame_progress = 0.413029
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0829163)
 shape = SubResource("BoxShape3D_qri60")
 
 [node name="chocPoulet" type="AudioStreamPlayer3D" parent="."]
