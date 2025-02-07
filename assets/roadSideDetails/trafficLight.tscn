@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://uilsojx0bi26"]
+
+[ext_resource type="Texture2D" uid="uid://bkwxow4g3f0yq" path="res://assets/tilemap/feu piéton.png" id="1_2qubx"]
+[ext_resource type="Script" path="res://assets/scripts/roadDetail.gd" id="1_4k6ml"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sbee7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2krat"]
+atlas = ExtResource("1_2qubx")
+region = Rect2(0, 0, 794, 4002)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4sfrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2krat")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sprite3D" type="Sprite3D"]
+transform = Transform3D(0.343128, 0, 0, 0, 0.343128, 0, 0, 0, 1, 0.479575, 6.64862, 0)
+texture = SubResource("ViewportTexture_sbee7")
+script = ExtResource("1_4k6ml")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1000, 4000)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport"]
+position = Vector2(414, 2031)
+sprite_frames = SubResource("SpriteFrames_4sfrs")

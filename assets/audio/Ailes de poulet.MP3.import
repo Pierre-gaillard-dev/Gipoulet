@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c87kfk13s41wg"
+path="res://.godot/imported/Ailes de poulet.MP3-22021d90fd158e142e4a651f9cedb905.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Ailes de poulet.MP3"
+dest_files=["res://.godot/imported/Ailes de poulet.MP3-22021d90fd158e142e4a651f9cedb905.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

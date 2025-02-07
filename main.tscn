@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cldaamkqgib14"]
+[gd_scene load_steps=4 format=3 uid="uid://cldaamkqgib14"]
 
 [ext_resource type="PackedScene" uid="uid://dr48g08gx6yhv" path="res://assets/scene.tscn" id="1_cerxb"]
+[ext_resource type="AudioStream" uid="uid://b08osq3qmgrb8" path="res://assets/audio/vintage-cinematic-144026.mp3" id="3_73r28"]
 [ext_resource type="PackedScene" uid="uid://cqcpbnaxq45hw" path="res://assets/home_hud.tscn" id="3_hpiel"]
 
 [node name="main" type="Node3D"]
 
 [node name="Scène" parent="." instance=ExtResource("1_cerxb")]
-transform = Transform3D(1.235, 0, 0, 0, 1, 0, 0, 0, 1, 0.0143642, 0, 4.66228)
+transform = Transform3D(1.235, 0, 0, 0, 1, 0, 0, 0, 1, 0.0143642, 0, -51.2432)
 metadata/length = 1000
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.882849, 0.469656, 0, -0.469656, 0.882849, 0.0222363, 3.88334, 4.90757)
+transform = Transform3D(1, 0, 0, 0, 0.954719, 0.297508, 0, -0.297508, 0.954719, 0.0222363, 3.88334, 4.90757)
 
 [node name="homeHUD" parent="." instance=ExtResource("3_hpiel")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_73r28")
+autoplay = true
+parameters/looping = true

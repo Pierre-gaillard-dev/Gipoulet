@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsvc1ne4op233"
+path="res://.godot/imported/Pas normaux.MP3-9cfa31c3d245d79f17fbe2a69305cdce.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Pas normaux.MP3"
+dest_files=["res://.godot/imported/Pas normaux.MP3-9cfa31c3d245d79f17fbe2a69305cdce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

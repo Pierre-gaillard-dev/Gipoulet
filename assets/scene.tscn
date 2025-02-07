@@ -1,15 +1,138 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr48g08gx6yhv"]
+[gd_scene load_steps=20 format=3 uid="uid://dr48g08gx6yhv"]
 
-[sub_resource type="Gradient" id="Gradient_kp322"]
-offsets = PackedFloat32Array(0, 0.357143, 0.506494, 0.62987, 1)
-colors = PackedColorArray(0.099986, 0.099986, 0.099986, 1, 0.288518, 0.288518, 0.288518, 1, 0.537011, 0.537011, 0.537011, 1, 0.295867, 0.295866, 0.295866, 1, 0.151276, 0.151276, 0.151276, 1)
+[ext_resource type="Texture2D" uid="uid://0u2c0w0mr4wm" path="res://assets/tilemap/Route.png" id="1_frhp7"]
+[ext_resource type="Script" path="res://assets/scripts/scene.gd" id="1_qfuws"]
+[ext_resource type="Texture2D" uid="uid://dbdeac13egkka" path="res://assets/tilemap/Ville1.png" id="2_ffl6s"]
+[ext_resource type="Texture2D" uid="uid://6tq61i56tfjn" path="res://assets/tilemap/LigneRoute.png" id="2_nhq3s"]
+[ext_resource type="Texture2D" uid="uid://2txwiyn8e34f" path="res://assets/tilemap/Ville2.png" id="3_dr8gk"]
+[ext_resource type="Texture2D" uid="uid://d3q2mlhse7yd0" path="res://assets/tilemap/Herbe 1.png" id="4_00yy8"]
+[ext_resource type="Texture2D" uid="uid://n5wbovp8hn75" path="res://assets/tilemap/Herbe2.png" id="5_tpxla"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vgl1m"]
-gradient = SubResource("Gradient_kp322")
-width = 450
+[sub_resource type="ViewportTexture" id="ViewportTexture_lhr00"]
+viewport_path = NodePath("Route/SubViewport")
 
-[node name="Scène" type="Node3D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nphh2"]
+atlas = ExtResource("1_frhp7")
+region = Rect2(0, 0, 2667, 4501)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_851lx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nphh2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kbher"]
+viewport_path = NodePath("LigneRoutes/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_23c3y"]
+viewport_path = NodePath("city/SubViewport2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu7w3"]
+atlas = ExtResource("2_ffl6s")
+region = Rect2(0, 0, 8037, 3278)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ewtu"]
+atlas = ExtResource("3_dr8gk")
+region = Rect2(0, 0, 8059, 3276)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1feyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu7w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ewtu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_akkeu"]
+viewport_path = NodePath("grass/SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d05yt"]
+atlas = ExtResource("4_00yy8")
+region = Rect2(0, 0, 8008, 1871)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyaaa"]
+atlas = ExtResource("5_tpxla")
+region = Rect2(0, 0, 8016, 1872)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l0dcf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d05yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyaaa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Scène" type="Node3D" node_paths=PackedStringArray("LignesRoute")]
+script = ExtResource("1_qfuws")
+LignesRoute = NodePath("LigneRoutes")
 
 [node name="Route" type="Sprite3D" parent="."]
-transform = Transform3D(1, -1.99722e-10, -3.10588e-22, 0, -0.00122866, 1, -7.10543e-15, -28108.4, -4.37114e-08, 0, 0, -133.284)
-texture = SubResource("GradientTexture1D_vgl1m")
+transform = Transform3D(0.31, -1.96889e-14, -4.44141e-22, 0, -1.21123e-07, 1.43, -2.20268e-15, -2.77096, -6.25073e-08, 0, 0, -2.0884)
+offset = Vector2(1, 0)
+texture = SubResource("ViewportTexture_lhr00")
+
+[node name="SubViewport" type="SubViewport" parent="Route"]
+size = Vector2i(2612, 4437)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Route/SubViewport"]
+position = Vector2(1293, 2188)
+sprite_frames = SubResource("SpriteFrames_851lx")
+
+[node name="LigneRoutes" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1.06437e-07, -1, 0, 2.435, -4.37114e-08, 0, 0.1, 0)
+texture = SubResource("ViewportTexture_kbher")
+
+[node name="SubViewport" type="SubViewport" parent="LigneRoutes"]
+transparent_bg = true
+size = Vector2i(48, 4762)
+
+[node name="LigneRoute" type="Sprite2D" parent="LigneRoutes/SubViewport"]
+position = Vector2(24, 396)
+texture = ExtResource("2_nhq3s")
+centered = false
+
+[node name="city" type="Sprite3D" parent="."]
+transform = Transform3D(3.48207, 0, 0, 0, 3.48207, 0, 0, 0, 1, 0, 44.8731, -28.3676)
+layers = 512
+texture = SubResource("ViewportTexture_23c3y")
+
+[node name="SubViewport2" type="SubViewport" parent="city"]
+transparent_bg = true
+size = Vector2i(8000, 2810)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="city/SubViewport2"]
+position = Vector2(4023, 1641)
+sprite_frames = SubResource("SpriteFrames_1feyd")
+frame_progress = 0.330409
+
+[node name="grass" type="Sprite3D" parent="."]
+transform = Transform3D(7.70591, 0, 0, 0, 8.59643, 0.546305, 0, -3.43989, 1.36524, 0, -58.9739, -45.82)
+layers = 512
+texture = SubResource("ViewportTexture_akkeu")
+
+[node name="SubViewport" type="SubViewport" parent="grass"]
+transparent_bg = true
+size = Vector2i(8000, 1800)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="grass/SubViewport"]
+position = Vector2(4001, 925)
+sprite_frames = SubResource("SpriteFrames_l0dcf")
+autoplay = "default"
+frame_progress = 0.528288

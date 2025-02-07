@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6tak4bohgc6g"]
+[gd_scene load_steps=13 format=3 uid="uid://c6tak4bohgc6g"]
 
 [ext_resource type="Script" path="res://assets/scripts/chicken.gd" id="1_r2f1g"]
 [ext_resource type="Texture2D" uid="uid://d2msorxrui0jw" path="res://assets/tilemap/Poulet.png" id="2_i8yt4"]
 [ext_resource type="Texture2D" uid="uid://bmgf3kqdtm8tg" path="res://assets/tilemap/Plume.png" id="3_uoyhw"]
+[ext_resource type="AudioStream" uid="uid://bsiwtcn4dpkmr" path="res://assets/audio/Choc poulet.wav" id="4_8wdof"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_383pn"]
 atlas = ExtResource("2_i8yt4")
@@ -75,5 +76,8 @@ frame_progress = 0.413029
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qri60")
+
+[node name="chocPoulet" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_8wdof")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bsiwtcn4dpkmr"
+path="res://.godot/imported/Choc poulet.wav-2620c498bc826662ebcbf735a0dd8e5a.sample"
+
+[deps]
+
+source_file="res://assets/audio/Choc poulet.wav"
+dest_files=["res://.godot/imported/Choc poulet.wav-2620c498bc826662ebcbf735a0dd8e5a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
