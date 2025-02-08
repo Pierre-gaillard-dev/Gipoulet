@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7c5lmdpc8yd3"]
+
+[ext_resource type="Script" path="res://assets/scripts/roadDetail.gd" id="1_6ylgc"]
+[ext_resource type="Texture2D" uid="uid://dqhq01v6087nv" path="res://assets/tilemap/Feu tricolore 2.png" id="1_t2ih5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fu2b2"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_774xb"]
+atlas = ExtResource("1_t2ih5")
+region = Rect2(0, 0, 2321, 3443)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3a2ua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_774xb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="light" type="Sprite3D"]
+transform = Transform3D(0.1548, 0, 0, 0, 0.1548, 0, 0, 0, 1, 1.44765, 2.50732, 0)
+texture = SubResource("ViewportTexture_fu2b2")
+script = ExtResource("1_6ylgc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2700, 3500)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport"]
+position = Vector2(1174, 1744)
+sprite_frames = SubResource("SpriteFrames_3a2ua")
+frame_progress = 0.82637

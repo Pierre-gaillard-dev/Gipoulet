@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://rax2jaolb47b"]
+
+[ext_resource type="Texture2D" uid="uid://ctg7i2i4hyj77" path="res://assets/tilemap/Justine/justine bonjour.png" id="1_0q6qo"]
+[ext_resource type="Texture2D" uid="uid://diyhtdft80mhp" path="res://assets/tilemap/Justine/justine enervée.png" id="2_70fe6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odt8a"]
+atlas = ExtResource("1_0q6qo")
+region = Rect2(0, 0, 2540, 4518)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkmxe"]
+atlas = ExtResource("2_70fe6")
+region = Rect2(0, 0, 2540, 4518)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n67mu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odt8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkmxe")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Justine" type="CanvasLayer"]
+layer = 2
+
+[node name="AnimatedSprite3D" type="AnimatedSprite2D" parent="."]
+position = Vector2(944, 489)
+scale = Vector2(0.384, 0.384)
+sprite_frames = SubResource("SpriteFrames_n67mu")
+frame = 1
+frame_progress = 1.0

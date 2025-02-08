@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dddnhn33hj8ka"]
+
+[ext_resource type="Script" path="res://assets/scripts/chick.gd" id="1_0drlo"]
+[ext_resource type="Texture2D" uid="uid://b6axbyhkd0det" path="res://assets/tilemap/Poussin.png" id="2_r5yw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqidf"]
+atlas = ExtResource("2_r5yw6")
+region = Rect2(65, 0, 770, 907)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02k3b"]
+atlas = ExtResource("2_r5yw6")
+region = Rect2(918, 0, 770, 907)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87ni3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqidf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02k3b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qcfmh"]
+size = Vector3(1.44922, 0.999023, 0.0744629)
+
+[node name="Chick" type="Area3D"]
+transform = Transform3D(0.645, 0, 0, 0, 0.645, 0, 0, 0, 0.645, 0, 0, 0)
+script = ExtResource("1_0drlo")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_87ni3")
+autoplay = "default"
+frame_progress = 0.711744
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999986, 0, 0, 0, 0.999986, 0, 0, 0, 0.999986, 0, 0, 0)
+shape = SubResource("BoxShape3D_qcfmh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

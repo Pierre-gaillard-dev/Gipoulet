@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0q17r2idk4e0"]
+
+[ext_resource type="PackedScene" uid="uid://dp873rgb0bhv3" path="res://assets/school.tscn" id="2_h2guc"]
+[ext_resource type="PackedScene" uid="uid://mr0tiv5hao88" path="res://assets/player.tscn" id="2_tcbmj"]
+[ext_resource type="Script" path="res://assets/scripts/chickens.gd" id="3_r03bn"]
+[ext_resource type="PackedScene" uid="uid://c6tak4bohgc6g" path="res://assets/chicken.tscn" id="4_oegib"]
+[ext_resource type="Script" path="res://assets/scripts/chicks.gd" id="5_b2na4"]
+[ext_resource type="PackedScene" uid="uid://dddnhn33hj8ka" path="res://assets/chick.tscn" id="6_ssrwl"]
+[ext_resource type="PackedScene" uid="uid://4cemtklyfhff" path="res://assets/interface.tscn" id="7_6corx"]
+[ext_resource type="Script" path="res://assets/scripts/roadDetails.gd" id="9_hmmt4"]
+[ext_resource type="PackedScene" uid="uid://c7c5lmdpc8yd3" path="res://assets/roadSideDetails/light.tscn" id="10_6lf3l"]
+[ext_resource type="AudioStream" uid="uid://b08osq3qmgrb8" path="res://assets/audio/vintage-cinematic-144026.mp3" id="11_232xe"]
+[ext_resource type="PackedScene" uid="uid://uilsojx0bi26" path="res://assets/roadSideDetails/trafficLight.tscn" id="11_xym70"]
+
+[node name="game" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("interface") instance=ExtResource("2_tcbmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+distance_max = 1000
+roadWidth = 4
+school = ExtResource("2_h2guc")
+interface = NodePath("../Interface")
+
+[node name="Chickens" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_r03bn")
+chicken = ExtResource("4_oegib")
+chickensDistances = Array[int]([3, 10, 40, 102, 20, 11, 25, 2, 75])
+chickenNumber = 500
+spawnRange = 40
+player = NodePath("../Player")
+
+[node name="Chicks" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("5_b2na4")
+chick = ExtResource("6_ssrwl")
+chickNumber = 20
+player = NodePath("../Player")
+
+[node name="Interface" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_6corx")]
+player = NodePath("../Player")
+
+[node name="roadDetails" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("9_hmmt4")
+player = NodePath("../Player")
+elements = Array[PackedScene]([ExtResource("10_6lf3l"), ExtResource("11_xym70")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_232xe")
+autoplay = true
+parameters/looping = true

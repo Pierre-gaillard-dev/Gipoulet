@@ -1,0 +1,80 @@
+[gd_scene load_steps=15 format=3 uid="uid://mr0tiv5hao88"]
+
+[ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_1g52f"]
+[ext_resource type="PackedScene" uid="uid://rax2jaolb47b" path="res://assets/justine.tscn" id="2_gx6cw"]
+[ext_resource type="Texture2D" uid="uid://dh6312w0s2bhe" path="res://assets/tilemap/mainChar/course-01.png" id="2_osohl"]
+[ext_resource type="Texture2D" uid="uid://cxw1xrnx5o3y" path="res://assets/tilemap/mainChar/course-02 .png" id="3_ktv1y"]
+[ext_resource type="Texture2D" uid="uid://cdcxcmchqt1am" path="res://assets/tilemap/mainChar/course-03.png" id="4_51l0m"]
+[ext_resource type="AudioStream" uid="uid://cq8s3yy4bo3hc" path="res://assets/audio/Vous etes en retard.MP3" id="4_ahhjf"]
+[ext_resource type="AudioStream" uid="uid://g66s5da41wf5" path="res://assets/audio/Bonjour de Justine.MP3" id="5_6wdbv"]
+[ext_resource type="Texture2D" uid="uid://cfv7mrhoi7eol" path="res://assets/tilemap/mainChar/course-04.png" id="5_lt5rg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbhai"]
+atlas = ExtResource("2_osohl")
+region = Rect2(0, 0, 2540, 4518)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am62e"]
+atlas = ExtResource("3_ktv1y")
+region = Rect2(0, 0, 2540, 4518)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rl60"]
+atlas = ExtResource("4_51l0m")
+region = Rect2(0, 0, 2540, 4518)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjunm"]
+atlas = ExtResource("5_lt5rg")
+region = Rect2(0, 0, 2540, 4518)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xqwv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbhai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am62e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rl60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjunm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rl60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am62e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1q3a"]
+size = Vector3(0.699341, 2.65226, 0.658203)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("retardPlayer", "bonjourPlayer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.944063, 0)
+script = ExtResource("1_1g52f")
+distance_max = 10
+Justine = ExtResource("2_gx6cw")
+retardPlayer = NodePath("Retard")
+bonjourPlayer = NodePath("Bonjour")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.00786685, 0, 0, 0, 0.00786685, 0, 0, 0, 1, 0, 0.1628, 0)
+pixel_size = 0.1
+sprite_frames = SubResource("SpriteFrames_8xqwv")
+autoplay = "default"
+frame_progress = 0.195255
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0147727, 0.0806623, 0.0765781)
+shape = SubResource("BoxShape3D_j1q3a")
+
+[node name="Retard" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ahhjf")
+
+[node name="Bonjour" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6wdbv")

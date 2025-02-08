@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://4cemtklyfhff"]
+
+[ext_resource type="Script" path="res://assets/scripts/interface.gd" id="1_q8arm"]
+[ext_resource type="FontFile" uid="uid://ddno8oxf4cneb" path="res://assets/Roboto-VariableFont_wdth,wght.ttf" id="2_h0uuo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gcp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkgad"]
+bg_color = Color(0.2508, 0.66, 0.2508, 1)
+
+[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("timer", "speedText")]
+script = ExtResource("1_q8arm")
+timer = NodePath("TimerText")
+speedText = NodePath("speedText")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -575.0
+offset_top = -33.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_7gcp6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vkgad")
+step = 0.1
+value = 31.0
+show_percentage = false
+
+[node name="TimerText" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = 115.0
+offset_right = 170.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("2_h0uuo")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 0
+text = "9:55:00"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="speedText" type="RichTextLabel" parent="."]
+offset_left = 838.0
+offset_top = 285.0
+offset_right = 1096.0
+offset_bottom = 371.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 58
+text = "19 m/s"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

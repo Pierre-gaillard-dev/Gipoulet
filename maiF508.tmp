@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cldaamkqgib14"]
+
+[ext_resource type="PackedScene" uid="uid://dr48g08gx6yhv" path="res://assets/scene.tscn" id="1_cerxb"]
+[ext_resource type="PackedScene" uid="uid://mr0tiv5hao88" path="res://player.tscn" id="2_ofaky"]
+[ext_resource type="PackedScene" uid="uid://c6tak4bohgc6g" path="res://assets/chicken.tscn" id="3_sgsp1"]
+[ext_resource type="Script" path="res://assets/scripts/chickens.gd" id="3_wp6uj"]
+
+[node name="main" type="Node3D"]
+
+[node name="Scène" parent="." instance=ExtResource("1_cerxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0143642, 0, -1.32198)
+metadata/length = 1000
+
+[node name="Player" parent="." instance=ExtResource("2_ofaky")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1.07557, 0)
+speed = 2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.920614, 0.390474, 0, -0.390474, 0.920614, -0.559463, 3.88334, 2.69972)
+
+[node name="Chickens" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_wp6uj")
+chicken = ExtResource("3_sgsp1")
+chickensDistances = Array[int]([3, 10, 40, 102])
+player = NodePath("../Player")
+spawnRange = 50

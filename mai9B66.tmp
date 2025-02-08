@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cldaamkqgib14"]
+
+[ext_resource type="PackedScene" uid="uid://dr48g08gx6yhv" path="res://assets/scene.tscn" id="1_cerxb"]
+[ext_resource type="PackedScene" uid="uid://mr0tiv5hao88" path="res://assets/player.tscn" id="2_ofaky"]
+[ext_resource type="PackedScene" uid="uid://c6tak4bohgc6g" path="res://assets/chicken.tscn" id="3_sgsp1"]
+
+[node name="main" type="Node3D"]
+
+[node name="Scène" parent="." instance=ExtResource("1_cerxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0143642, 0, -1.32198)
+metadata/length = 1000
+
+[node name="Player" parent="." instance=ExtResource("2_ofaky")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1.07557, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.559463, 0.199772, 6.01875)
+
+[node name="Node3D" parent="." instance=ExtResource("3_sgsp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0192, 0.528116, -11.0272)

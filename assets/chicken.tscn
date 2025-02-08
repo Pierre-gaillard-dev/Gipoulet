@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6tak4bohgc6g"]
+
+[ext_resource type="Script" path="res://assets/scripts/chicken.gd" id="1_r2f1g"]
+[ext_resource type="Texture2D" uid="uid://d2msorxrui0jw" path="res://assets/tilemap/Poulet.png" id="2_i8yt4"]
+[ext_resource type="Texture2D" uid="uid://bmgf3kqdtm8tg" path="res://assets/tilemap/Plume.png" id="3_uoyhw"]
+[ext_resource type="AudioStream" uid="uid://bsiwtcn4dpkmr" path="res://assets/audio/Choc poulet.wav" id="4_8wdof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mjpf"]
+atlas = ExtResource("2_i8yt4")
+region = Rect2(0, 0, 764, 729)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh5u3"]
+atlas = ExtResource("2_i8yt4")
+region = Rect2(863, 0, 764, 729)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy67q"]
+atlas = ExtResource("3_uoyhw")
+region = Rect2(0, 568, 847, 754)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcpcl"]
+atlas = ExtResource("3_uoyhw")
+region = Rect2(1131, 497, 909, 835)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh4kc"]
+atlas = ExtResource("3_uoyhw")
+region = Rect2(2415, 388, 1176, 1034)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3eyx"]
+atlas = ExtResource("3_uoyhw")
+region = Rect2(4092, 0, 1643, 1679)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y71od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mjpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh5u3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy67q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcpcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh4kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3eyx")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 20.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qri60"]
+size = Vector3(0.543945, 1, 0.308411)
+
+[node name="Chicken" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.523018, -0.00278708)
+script = ExtResource("1_r2f1g")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.59, 0, 0, 0, 1.59, 0, 0, 0, 1.59, 0, 0, 0)
+pixel_size = 0.001
+sprite_frames = SubResource("SpriteFrames_y71od")
+autoplay = "default"
+frame_progress = 0.413029
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0829163)
+shape = SubResource("BoxShape3D_qri60")
+
+[node name="chocPoulet" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_8wdof")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
